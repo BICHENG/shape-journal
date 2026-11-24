@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "offline_required": true,
+  "cdn_allowed": false,
+  "runtime_policy": {
+    "user_runs_npm": false,
+    "user_runs_dev_server": false,
+    "preferred_delivery": "classic_bundle_from_fixed_npm_versions",
+    "runtime_bundle": "viewer_runtime.bundle.js",
+    "runtime_source": "src/viewer_runtime.js",
+    "runtime_build_script": "body_measurement/scripts/build_viewer_runtime.py",
+    "build_packages": [
+      "esbuild@0.24.2",
+      "three@0.184.0",
+      "three-mesh-bvh@0.9.10"
+    ]
+  },
+  "renderer": {
+    "library": "three",
+    "version": "0.184.0",
+    "license": "MIT",
+    "npm_spec": "three@0.184.0",
+    "runtime_imports": [
+      "three",
+      "three/examples/jsm/controls/OrbitControls.js",
+      "three/examples/jsm/exporters/STLExporter.js",
+      "three/examples/jsm/lines/Line2.js",
+      "three/examples/jsm/lines/LineGeometry.js",
+      "three/examples/jsm/lines/LineMaterial.js"
+    ],
+    "capabilities": [
+      "WebGLRenderer",
+      "PerspectiveCamera",
+      "OrbitControls",
+      "BufferGeometry",
+      "MeshStandardMaterial",
+      "STLExporter"
+    ]
+  },
+  "mesh_query": {
+    "library": "three-mesh-bvh",
+    "version": "0.9.10",
+    "license": "MIT",
+    "npm_spec": "three-mesh-bvh@0.9.10",
+    "runtime_imports": [
+      "three-mesh-bvh"
+    ],
+    "capabilities": [
+      "accelerated_raycast",
+      "bvh_spatial_query",
+      "closest_point_query"
+    ]
+  }
+}

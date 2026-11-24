@@ -1,0 +1,778 @@
+{
+  "schema_version": 2,
+  "workbook_source": {
+    "path": "docs/量体流程记录表（已更新）.xlsx",
+    "bytes": 173467681,
+    "sha256": "5943b65c70cb807561ab74779f9cc279a21c53610607ea79b53555ad36b93f45",
+    "sheet": "下半身量体定义",
+    "not_defined_item_ids": ["chest", "natural_waist", "quick_hip", "shoulder_width", "free_length"]
+  },
+  "release_scope": {
+    "preset_schema_id": "lower-body-8-v1",
+    "qualification_report_paths": [
+      "output/playwright/interaction/release-fhj1-final-20260811/viewer_browser_report.json",
+      "output/playwright/interaction/release-2-20260811/viewer_browser_report.json"
+    ]
+  },
+  "missing": [
+    {
+      "field": "definition_signer",
+      "reason": "项目负责人尚未指定有权批准工作簿下半身 8 项定义与 canonical SurfaceHit 的服装签署人"
+    }
+  ],
+  "historical_definitions": [
+    {
+      "item_id": "lower_hip",
+      "metric_id": "hip_circumference",
+      "definition_id": "lower_hip_circumference",
+      "version": "v1",
+      "definition_status": "candidate",
+      "preset_schema_id": "lower-body-8-v1",
+      "method": "mesh_section",
+      "pose_id": "apose_arms_down_35deg_v1__legs_together",
+      "lower_body_pose_id": "legs_together",
+      "sides": [
+        "center"
+      ],
+      "body_segments": [
+        "pelvis",
+        "left_thigh",
+        "right_thigh"
+      ],
+      "tolerance_cm": 0.5,
+      "measurement_rule": "双腿并拢直立，在臀部最丰满处水平绕量一周",
+      "direction": "horizontal_loop",
+      "plane_normal": "body_up",
+      "section_height": "seed",
+      "seed": {
+        "id": "hip_fullness_seed",
+        "kind": "subject_confirmed",
+        "subject_confirmation_rule": null
+      },
+      "allowed_faces": [],
+      "label": "臀围"
+    }
+  ],
+  "definitions": [
+    {
+      "item_id": "chest",
+      "metric_id": "chest_circumference",
+      "definition_id": "chest_circumference",
+      "version": "v2",
+      "definition_status": "candidate",
+      "method": "mesh_section",
+      "pose_id": "apose_arms_down_35deg_v1__natural_standing",
+      "sides": [
+        "center"
+      ],
+      "body_segments": [
+        "torso"
+      ],
+      "tolerance_cm": null,
+      "measurement_rule": "自然站立，经过左右胸点中间高度，沿胸廓水平贴体量一周。",
+      "direction": "horizontal_loop",
+      "plane_normal": "body_up",
+      "section_height": "seed",
+      "seed": {
+        "id": "chest_fullness_seed",
+        "kind": "subject_confirmed",
+        "subject_confirmation_rule": "自然站立，经过左右胸点中间高度，沿胸廓水平贴体量一周。",
+        "label": "两侧胸点高度"
+      },
+      "allowed_faces": [],
+      "signoff": null,
+      "missing": [
+        {
+          "field": "tolerance_cm",
+          "reason": "工作簿未定义胸围业务容差"
+        },
+        {
+          "field": "signoff",
+          "reason": "定义尚未由指定服装人员签署"
+        }
+      ],
+      "section_placement": {
+        "at": {
+          "vertices": [
+            3042,
+            6489
+          ]
+        },
+        "bounds": [
+          {
+            "joints": [
+              "spine2"
+            ]
+          },
+          {
+            "joints": [
+              "left_shoulder",
+              "right_shoulder"
+            ]
+          }
+        ]
+      },
+      "label": "胸围",
+      "circumference_fit": "surface",
+      "lower_body_pose_id": "natural_standing",
+      "arm_down_degrees": 35
+    },
+    {
+      "item_id": "natural_waist",
+      "metric_id": "waist_circumference",
+      "definition_id": "natural_waist_circumference",
+      "version": "v2",
+      "definition_status": "candidate",
+      "method": "mesh_section",
+      "pose_id": "apose_arms_down_35deg_v1__natural_standing",
+      "sides": [
+        "center"
+      ],
+      "body_segments": [
+        "torso",
+        "pelvis"
+      ],
+      "tolerance_cm": null,
+      "measurement_rule": "自然站立，在髂嵴与胸廓下部之间取躯干最细处，水平拉紧软尺量一周。",
+      "direction": "horizontal_loop",
+      "plane_normal": "body_up",
+      "section_height": "seed",
+      "seed": {
+        "id": "natural_waist_seed",
+        "kind": "subject_confirmed",
+        "subject_confirmation_rule": "自然站立，在髂嵴与胸廓下部之间取躯干最细处，水平拉紧软尺量一周。",
+        "label": "自然腰最细处"
+      },
+      "allowed_faces": [],
+      "signoff": null,
+      "missing": [
+        {
+          "field": "tolerance_cm",
+          "reason": "工作簿未定义自然腰围业务容差"
+        },
+        {
+          "field": "signoff",
+          "reason": "定义尚未由指定服装人员签署"
+        }
+      ],
+      "section_placement": {
+        "select": "narrowest",
+        "bounds": [
+          {
+            "hits": [
+              "left_hip_crest",
+              "right_hip_crest"
+            ]
+          },
+          {
+            "joints": [
+              "spine2"
+            ]
+          }
+        ]
+      },
+      "label": "自然腰围",
+      "circumference_fit": "basic",
+      "lower_body_pose_id": "natural_standing",
+      "arm_down_degrees": 35
+    },
+    {
+      "item_id": "shoulder_width",
+      "metric_id": "shoulder_width",
+      "definition_id": "shoulder_width",
+      "version": "v1",
+      "definition_status": "candidate",
+      "method": "straight",
+      "pose_id": null,
+      "sides": ["center"],
+      "body_segments": [],
+      "tolerance_cm": null,
+      "measurement_rule": "左肩点到右肩点的空间直线距离",
+      "direction": "left_to_right",
+      "anchor_ids": ["left_shoulder", "right_shoulder"],
+      "anchors": [
+        {
+          "id": "left_shoulder",
+          "kind": "canonical",
+          "surface_hit": null
+        },
+        {
+          "id": "right_shoulder",
+          "kind": "canonical",
+          "surface_hit": null
+        }
+      ],
+      "signoff": null,
+      "missing": [
+        {
+          "field": "pose_id",
+          "reason": "服装签署人尚未批准肩宽所用姿态"
+        },
+        {
+          "field": "body_segments",
+          "reason": "尚未签署肩点所属身体段"
+        },
+        {
+          "field": "tolerance_cm",
+          "reason": "工作簿未定义肩宽业务容差"
+        },
+        {
+          "field": "anchors[0].surface_hit",
+          "reason": "左肩点 canonical SurfaceHit 尚未获签"
+        },
+        {
+          "field": "anchors[1].surface_hit",
+          "reason": "右肩点 canonical SurfaceHit 尚未获签"
+        },
+        {
+          "field": "signoff",
+          "reason": "straight 量法与定义尚未由指定服装人员签署"
+        }
+      ]
+    },
+    {
+      "item_id": "free_length",
+      "metric_id": "free_length",
+      "definition_id": "free_length",
+      "version": "v1",
+      "definition_status": "candidate",
+      "method": "surface_path",
+      "value_rule": "path_length",
+      "pose_id": null,
+      "sides": [],
+      "body_segments": [],
+      "tolerance_cm": null,
+      "measurement_rule": null,
+      "direction": null,
+      "anchor_ids": [],
+      "anchors": [],
+      "segment_corridors": [],
+      "signoff": null,
+      "missing": [
+        {
+          "field": "measurement_rule",
+          "reason": "尚未声明本次自由长度的服装用途"
+        },
+        {
+          "field": "pose_id",
+          "reason": "尚未声明本次自由长度使用的 pose"
+        },
+        {
+          "field": "sides",
+          "reason": "尚未声明 center、left 或 right"
+        },
+        {
+          "field": "body_segments",
+          "reason": "尚未声明允许经过的身体段"
+        },
+        {
+          "field": "tolerance_cm",
+          "reason": "尚未签署本次自由长度的业务容差"
+        },
+        {
+          "field": "anchor_ids",
+          "reason": "尚未签署有序 anchor ID"
+        },
+        {
+          "field": "anchors",
+          "reason": "尚未取得 anchors 的 SurfaceHit"
+        },
+        {
+          "field": "segment_corridors",
+          "reason": "尚未为每对相邻 anchor 签署 corridor、side、direction 与 allowed_faces"
+        },
+        {
+          "field": "signoff",
+          "reason": "定义尚未由指定服装人员签署"
+        }
+      ]
+    },
+    {
+      "item_id": "iliac_waist",
+      "metric_id": "iliac_waist_circumference",
+      "label": "胯骨腰围",
+      "definition_id": "iliac_waist_circumference",
+      "version": "v1",
+      "definition_status": "candidate",
+      "preset_schema_id": "lower-body-8-v1",
+      "method": "mesh_section",
+      "pose_id": "apose_arms_down_35deg_v1__natural_standing",
+      "lower_body_pose_id": "natural_standing",
+      "sides": ["center"],
+      "body_segments": ["pelvis", "torso"],
+      "tolerance_cm": 0.5,
+      "measurement_rule": "找到人体两侧胯骨的端点，软尺经过端点水平绕量，尺下沿与胯骨顶端相切",
+      "direction": "horizontal_loop",
+      "plane_normal": "body_up",
+      "section_height": "seed",
+      "required_hit_ids": ["left_hip_crest", "right_hip_crest"],
+      "anchors": [
+        {"id": "left_hip_crest", "label": "左胯骨最高点", "kind": "canonical", "surface_hit": null},
+        {"id": "right_hip_crest", "label": "右胯骨最高点", "kind": "canonical", "surface_hit": null}
+      ],
+      "seed": null,
+      "allowed_faces": [],
+      "source_cells": {
+        "D3": "找到人体两侧胯骨的端点，软尺经过端点水平绕量，尺下沿与胯骨顶端【相切】",
+        "E3": "①双手展开，正直站立不扭腰，呼吸自然，不刻意收腹 / 挺腰；\n②软尺贴皮不压肉，水平绕量，保持尺面平整无扭转；",
+        "G3": "±0.5cm"
+      },
+      "signoff": null,
+      "missing": [
+        {
+          "field": "seed",
+          "reason": "尚未签署左右髂嵴高低关系、截面 seed 及其 canonical SurfaceHit"
+        },
+        {
+          "field": "allowed_faces",
+          "reason": "尚无获签 pelvis face 集合"
+        },
+        {
+          "field": "signoff",
+          "reason": "定义与尺下沿相切口径尚未由指定服装人员签署"
+        }
+      ]
+    },
+    {
+      "item_id": "lower_hip",
+      "metric_id": "hip_circumference",
+      "definition_id": "lower_hip_circumference",
+      "version": "v2",
+      "definition_status": "candidate",
+      "preset_schema_id": "lower-body-8-v1",
+      "method": "mesh_section",
+      "pose_id": "apose_arms_down_35deg_v1__legs_together",
+      "lower_body_pose_id": "legs_together",
+      "sides": [
+        "center"
+      ],
+      "body_segments": [
+        "pelvis",
+        "left_thigh",
+        "right_thigh"
+      ],
+      "tolerance_cm": 0.5,
+      "measurement_rule": "双腿并拢直立，在臀部最向后突出的位置水平拉紧软尺量一周。",
+      "direction": "horizontal_loop",
+      "plane_normal": "body_up",
+      "section_height": "seed",
+      "seed": {
+        "id": "hip_fullness_seed",
+        "kind": "subject_confirmed",
+        "subject_confirmation_rule": "双腿并拢直立，在臀部最向后突出的位置水平拉紧软尺量一周。",
+        "label": "臀部最突出点"
+      },
+      "allowed_faces": [],
+      "source_cells": {
+        "D4": "臀部最丰满处（臀峰位置），软尺水平绕量一周",
+        "E4": "①双腿并拢直立，不扭胯、不刻意提臀 / 收臀；②软尺水平环绕臀峰，贴皮不松不紧。",
+        "G4": "±0.5cm"
+      },
+      "signoff": null,
+      "missing": [
+        {
+          "field": "signoff",
+          "reason": "定义尚未由指定服装人员签署"
+        }
+      ],
+      "section_placement": {
+        "select": "buttock_prominence",
+        "bounds": [
+          {
+            "hits": [
+              "crotch"
+            ]
+          },
+          {
+            "joints": [
+              "pelvis"
+            ]
+          }
+        ],
+        "scan_fraction": [
+          0.12,
+          0.9
+        ]
+      },
+      "label": "臀围",
+      "circumference_fit": "basic",
+      "arm_down_degrees": 35
+    },
+    {
+      "item_id": "total_crotch",
+      "metric_id": "total_crotch_length",
+      "label": "总裆长",
+      "auto_place": false,
+      "definition_id": "total_crotch_length",
+      "version": "v1",
+      "definition_status": "candidate",
+      "preset_schema_id": "lower-body-8-v1",
+      "method": "surface_path",
+      "value_rule": "path_length",
+      "pose_id": "apose_arms_down_35deg_v1__legs_together",
+      "lower_body_pose_id": "legs_together",
+      "sides": ["center"],
+      "body_segments": ["torso", "pelvis", "left_thigh", "right_thigh"],
+      "tolerance_cm": 1.0,
+      "measurement_rule": "从前腰中点开始，经裆底贴合身体曲线绕至后腰中点",
+      "direction": "front_to_back",
+      "anchor_ids": ["front_waist_midpoint", "crotch", "back_waist_midpoint"],
+      "crotch_anchor_id": "crotch",
+      "anchors": [
+        {
+          "role": "front_waist_midpoint",
+          "id": "front_waist_midpoint",
+          "label": "前腰中点",
+          "kind": "canonical",
+          "surface_hit": null
+        },
+        {
+          "role": "crotch",
+          "id": "crotch",
+          "label": "裆底",
+          "kind": "canonical",
+          "surface_hit": null
+        },
+        {
+          "role": "back_waist_midpoint",
+          "id": "back_waist_midpoint",
+          "label": "后腰中点",
+          "kind": "canonical",
+          "surface_hit": null
+        }
+      ],
+      "segment_corridors": [
+        {
+          "start_id": "front_waist_midpoint",
+          "end_id": "crotch",
+          "side": "center",
+          "direction": "descending",
+          "allowed_faces": []
+        },
+        {
+          "start_id": "crotch",
+          "end_id": "back_waist_midpoint",
+          "side": "center",
+          "direction": "ascending",
+          "allowed_faces": []
+        }
+      ],
+      "source_cells": {
+        "D5": "胯骨腰围与裆部形成前后两个垂直交叉点，从腰前交叉点→向下经裆部→绕至腰后交叉点，形成的U形总长度",
+        "E5": "①双腿并拢，不扭胯、不挺腹；\n② 软尺从前腰中点开始，经裆底贴合身体曲线绕至后腰中点，不拉扯、不松弛；",
+        "G5": "±1.0cm"
+      },
+      "signoff": null,
+      "missing": [
+        {
+          "field": "anchor_ids",
+          "reason": "前腰中点和后腰中点的正式 ID 尚未签署"
+        },
+        {
+          "field": "anchors",
+          "reason": "前腰中点、会阴和后腰中点的 canonical SurfaceHit 尚未获签"
+        },
+        {
+          "field": "segment_corridors",
+          "reason": "前后矢状 corridor 的 allowed_faces 尚未获签"
+        },
+        {
+          "field": "signoff",
+          "reason": "定义尚未由指定服装人员签署"
+        }
+      ]
+    },
+    {
+      "item_id": "thigh",
+      "metric_id": "thigh_circumference",
+      "label": "大腿围",
+      "definition_id": "thigh_circumference",
+      "version": "v1",
+      "definition_status": "candidate",
+      "preset_schema_id": "lower-body-8-v1",
+      "method": "mesh_section",
+      "pose_id": "apose_arms_down_35deg_v1__legs_shoulder_width",
+      "lower_body_pose_id": "legs_shoulder_width",
+      "sides": ["left", "right"],
+      "body_segments": ["{side}_thigh"],
+      "automatic_placement": {
+        "joint_span": ["hip", "knee"],
+        "scan_fraction": [0.15, 0.85],
+        "exclude_segment_boundary": true
+      },
+      "tolerance_cm": 0.5,
+      "measurement_rule": "双腿分开与肩同宽，在声明侧大腿最粗处水平绕量一周",
+      "direction": "horizontal_loop",
+      "plane_normal": "body_up",
+      "section_height": "seed",
+      "seed": {
+        "id": "{side}_thigh_fullness_seed",
+        "kind": "subject_confirmed",
+        "label": "同侧大腿最粗处",
+        "subject_confirmation_rule": null
+      },
+      "allowed_faces": [],
+      "source_cells": {
+        "D6": "大腿最粗处水平绕量一周",
+        "E6": "①双腿分开与肩同宽（避免压迫大腿），腿部放松；\n②软尺水平环绕大腿最粗处，贴皮不松不紧，不倾斜；",
+        "G6": "±0.5cm"
+      },
+      "signoff": null,
+      "missing": [
+        {
+          "field": "seed.subject_confirmation_rule",
+          "reason": "尚未签署每具人台、每个 side 的大腿最粗 seed 确认方法"
+        },
+        {
+          "field": "allowed_faces",
+          "reason": "尚无按 side 获签的 thigh face 集合"
+        },
+        {
+          "field": "signoff",
+          "reason": "定义尚未由指定服装人员签署"
+        }
+      ]
+    },
+    {
+      "item_id": "upper_arm",
+      "metric_id": "upper_arm_circumference",
+      "label": "上臂中点围",
+      "definition_id": "upper_arm_midpoint_circumference",
+      "version": "v1",
+      "definition_status": "candidate",
+      "method": "mesh_section",
+      "pose_id": "apose_arms_down_35deg_v1__natural_standing",
+      "lower_body_pose_id": "natural_standing",
+      "sides": ["left", "right"],
+      "body_segments": ["{side}_upper_arm"],
+      "plane_normal": "limb_axis",
+      "measurement_rule": "在同侧肩与肘关节之间的中点，沿垂直于上臂轴的平面绕量一周。",
+      "automatic_placement": {
+        "joint_span": ["shoulder", "elbow"],
+        "fraction": 0.5
+      }
+    },
+    {
+      "item_id": "calf",
+      "metric_id": "calf_circumference",
+      "label": "小腿围",
+      "definition_id": "calf_circumference",
+      "version": "v1",
+      "definition_status": "candidate",
+      "preset_schema_id": "lower-body-8-v1",
+      "method": "mesh_section",
+      "pose_id": "apose_arms_down_35deg_v1__natural_standing",
+      "lower_body_pose_id": "natural_standing",
+      "sides": ["left", "right"],
+      "body_segments": ["{side}_shin"],
+      "automatic_placement": {
+        "joint_span": ["knee", "ankle"],
+        "scan_fraction": [0.2, 0.75]
+      },
+      "tolerance_cm": 0.3,
+      "measurement_rule": "自然站立、腿部放松，在声明侧小腿最粗处水平绕量一周",
+      "direction": "horizontal_loop",
+      "plane_normal": "body_up",
+      "section_height": "seed",
+      "seed": {
+        "id": "{side}_calf_fullness_seed",
+        "kind": "subject_confirmed",
+        "label": "同侧小腿最粗处",
+        "subject_confirmation_rule": null
+      },
+      "allowed_faces": [],
+      "source_cells": {
+        "D7": "小腿最粗处水平绕量一周",
+        "E7": "①双腿伸直，不踮脚、不屈膝，腿部放松；\n②软尺水平环绕小腿最粗处，贴皮不松不紧",
+        "G7": "±0.3cm"
+      },
+      "signoff": null,
+      "missing": [
+        {
+          "field": "seed.subject_confirmation_rule",
+          "reason": "尚未签署每具人台、每个 side 的小腿最粗 seed 确认方法"
+        },
+        {
+          "field": "allowed_faces",
+          "reason": "尚无按 side 获签的 shin face 集合"
+        },
+        {
+          "field": "signoff",
+          "reason": "定义尚未由指定服装人员签署"
+        }
+      ]
+    },
+    {
+      "item_id": "knee",
+      "metric_id": "knee_circumference",
+      "label": "膝围",
+      "definition_id": "knee_circumference",
+      "version": "v1",
+      "definition_status": "candidate",
+      "preset_schema_id": "lower-body-8-v1",
+      "method": "mesh_section",
+      "pose_id": "apose_arms_down_35deg_v1__natural_standing",
+      "lower_body_pose_id": "natural_standing",
+      "sides": ["left", "right"],
+      "body_segments": ["{side}_thigh", "{side}_shin"],
+      "automatic_placement": {"joint": "knee"},
+      "tolerance_cm": 0.3,
+      "measurement_rule": "自然站立、腿部放松，经过声明侧髌骨最突点水平绕量一周",
+      "direction": "horizontal_loop",
+      "plane_normal": "body_up",
+      "section_height": "seed",
+      "seed": {
+        "id": "{side}_patella",
+        "kind": "canonical",
+        "label": "同侧髌骨最突点",
+        "surface_hit": null
+      },
+      "allowed_faces": [],
+      "source_cells": {
+        "D8": "自然站立时膝盖骨最突点位置，水平绕量一周",
+        "E8": "①双腿伸直，不屈膝、不踮脚；\n②软尺水平环绕，贴皮不松不紧，不倾斜；\n③腿部放松，不刻意绷紧肌肉。",
+        "G8": "±0.3cm"
+      },
+      "signoff": null,
+      "missing": [
+        {
+          "field": "seed.surface_hit",
+          "reason": "左右髌骨 canonical SurfaceHit 尚未获签"
+        },
+        {
+          "field": "allowed_faces",
+          "reason": "尚无按 side 获签的膝部 thigh + shin face 集合"
+        },
+        {
+          "field": "signoff",
+          "reason": "定义尚未由指定服装人员签署"
+        }
+      ]
+    },
+    {
+      "item_id": "outseam",
+      "metric_id": "outseam_length",
+      "label": "外侧腿长",
+      "definition_id": "outseam_length",
+      "version": "v1",
+      "definition_status": "candidate",
+      "preset_schema_id": "lower-body-8-v1",
+      "method": "surface_path",
+      "value_rule": "body_up_projection",
+      "pose_id": "apose_arms_down_35deg_v1__legs_together",
+      "lower_body_pose_id": "legs_together",
+      "sides": ["left", "right"],
+      "body_segments": ["torso", "pelvis", "{side}_thigh", "{side}_shin", "{side}_foot"],
+      "tolerance_cm": 1.0,
+      "measurement_rule": "从声明侧胯骨顶沿腿外侧贴体量至同侧外踝",
+      "direction": "hip_crest_to_lateral_malleolus",
+      "anchor_ids": ["{side}_hip_crest", "{side}_lateral_malleolus"],
+      "anchors": [
+        {
+          "id": "{side}_hip_crest",
+          "kind": "canonical",
+          "label": "同侧胯骨最高点",
+          "surface_hit": null
+        },
+        {
+          "id": "{side}_lateral_malleolus",
+          "kind": "canonical",
+          "label": "同侧外踝点",
+          "surface_hit": null
+        }
+      ],
+      "segment_corridors": [
+        {
+          "start_id": "{side}_hip_crest",
+          "end_id": "{side}_lateral_malleolus",
+          "side": "{side}",
+          "direction": "descending",
+          "allowed_faces": []
+        }
+      ],
+      "source_cells": {
+        "D9": "自腰部侧面的胯骨端点，垂直向下至脚踝骨最高点",
+        "E9": "①双腿并拢，身体正直，不歪身、不踮脚；\n②软尺从腰侧胯骨端点垂直向下，沿腿外侧量至外踝骨，保持垂直不倾斜；\n③ 腿部伸直，不弯曲、不扭胯。",
+        "G9": "±1.0cm"
+      },
+      "signoff": null,
+      "missing": [
+        {
+          "field": "anchors",
+          "reason": "左右髂嵴与外踝 canonical SurfaceHit 尚未获签"
+        },
+        {
+          "field": "segment_corridors[0].allowed_faces",
+          "reason": "左右外线 corridor faces 尚未获签"
+        },
+        {
+          "field": "signoff",
+          "reason": "surface_path 贴体量法与定义尚未由指定服装人员签署"
+        }
+      ]
+    },
+    {
+      "item_id": "inseam",
+      "metric_id": "inseam_length",
+      "label": "内档腿长",
+      "auto_place": false,
+      "definition_id": "inseam_length",
+      "version": "v1",
+      "definition_status": "candidate",
+      "preset_schema_id": "lower-body-8-v1",
+      "method": "surface_path",
+      "value_rule": "body_up_projection",
+      "pose_id": "apose_arms_down_35deg_v1__legs_shoulder_width",
+      "lower_body_pose_id": "legs_shoulder_width",
+      "sides": ["left", "right"],
+      "body_segments": ["pelvis", "left_thigh", "right_thigh", "{side}_shin", "{side}_foot"],
+      "tolerance_cm": 1.0,
+      "measurement_rule": "从会阴沿声明侧腿内侧贴体量至同侧内踝",
+      "direction": "crotch_to_medial_malleolus",
+      "anchor_ids": ["crotch", "{side}_medial_malleolus"],
+      "anchors": [
+        {
+          "id": "crotch",
+          "kind": "canonical",
+          "label": "裆底",
+          "surface_hit": null
+        },
+        {
+          "id": "{side}_medial_malleolus",
+          "kind": "canonical",
+          "label": "同侧内踝点",
+          "surface_hit": null
+        }
+      ],
+      "segment_corridors": [
+        {
+          "start_id": "crotch",
+          "end_id": "{side}_medial_malleolus",
+          "side": "{side}",
+          "direction": "descending",
+          "allowed_faces": []
+        }
+      ],
+      "source_cells": {
+        "D10": "会阴部（大腿根部内侧中点）至内脚踝骨（内踝骨）的垂直长度",
+        "E10": "①双腿分开与肩同宽（避免压迫裆部）\n②软尺从裆底沿腿内侧垂直向下量至内踝骨，保持垂直不倾斜；",
+        "G10": "±1.0cm"
+      },
+      "signoff": null,
+      "missing": [
+        {
+          "field": "anchors",
+          "reason": "会阴与左右内踝 canonical SurfaceHit 尚未获签"
+        },
+        {
+          "field": "segment_corridors[0].allowed_faces",
+          "reason": "左右内线 corridor faces 尚未获签"
+        },
+        {
+          "field": "signoff",
+          "reason": "surface_path 贴体量法与定义尚未由指定服装人员签署"
+        }
+      ]
+    }
+  ]
+}
